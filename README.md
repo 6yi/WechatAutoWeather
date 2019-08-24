@@ -33,9 +33,10 @@
   <br>
   <br>
   <br>
-### 扫码关注，然后将微信号填写在代码里头
+  
+###  扫码关注，然后将微信号填写在代码里头
   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/3.png)
-   
+  
   <br>
   <br>
   <br>
