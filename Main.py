@@ -97,6 +97,5 @@ if __name__ == '__main__':
                 getmsg("https://www.tianqiapi.com/api/?version=v6&city=城市名",
                 "https://api.caiyunapp.com/v2/你的彩云天气APPtoken/经纬度/minutely.json"),
                 access_token,"模板号")
-
         time.sleep(second)
 
