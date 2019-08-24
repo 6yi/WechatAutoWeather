@@ -11,7 +11,7 @@
 ### 准备：
   1.云服务器一个，并且装有python3.x
   <br>
-  2.彩云天气开发者账户（https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API），自行申请就OK
+  2.彩云天气开发者账户（https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API 自行申请就OK
   
 ### 首先注册公众测试号 ：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
   <br>
