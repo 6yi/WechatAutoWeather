@@ -8,31 +8,34 @@
 
 # 食用教程
   
-##### 准备：
+### 准备：
   云服务器一个，并且装有python3.x
   
   
 # 首先注册公众测试号 ：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
+  <br>
+  <br>
   
-  
-  
-##### 将appID和appsecret填到代码里头
+### 将appID和appsecret填到代码里头
   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/2.png)
+  <br>
+  <br>
   
   
-  
-##### 填写消息模板
+### 填写消息模板
   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/4.png)
 
+  <br>
+  <br>
 
-
-##### 扫码关注，然后将微信号填写在代码里头
+### 扫码关注，然后将微信号填写在代码里头
   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/3.png)
    
-   
+  <br>
+  <br>
    
 # 将填写好的代码扔到服务器上
-##### 任意方法，我用的是WinScp传输到服务器
+### 任意方法，我用的是WinScp传输到服务器
   
   python安装所需的库
   ```bash 
