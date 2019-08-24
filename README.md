@@ -2,7 +2,7 @@
 
 # 通过微信公众测试号来定时给微信发送天气信息。
   （理论上开小号用itchat也可以做到，问题是我的小号不给登录网页版，看见酷安上的老哥用这个方式曲线救国，感觉还可以）
-
+  <br>
 # 效果图
 ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/1.jpg)
 
@@ -10,6 +10,7 @@
   
 ### 准备：
   1.云服务器一个，并且装有python3.x
+  <br>
   2.彩云天气开发者账户（https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API），自行申请就OK
   
 ### 首先注册公众测试号 ：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
