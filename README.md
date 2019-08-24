@@ -15,13 +15,13 @@
 # 首先注册公众测试号 ：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
   
   将appID和appsecret填到代码里头
-  ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/2.jpg)
+  ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/2.png)
   
   填写消息模板
-  ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/4.jpg)
+  ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/4.png)
 
   扫码关注，然后将微信号填写在代码里头
-   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/3.jpg)
+   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/3.png)
    
 # 将填写好的代码扔到服务器上
   任意方法，我用的是WinScp传输到服务器
