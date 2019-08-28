@@ -57,35 +57,45 @@ def getmsg(city,jwd):
     self_realtime_data = json.loads(json_text)
     status=self_realtime_data['status']
     json_text=requests.get(str.format(city)).content
-    data = json.loads(json_text)
-    cityid=data['cityid']
-    city=data['city']
-    date=data['date']
-    utime=data['update_time']
-    week=data['week']
-    wea=data['wea']
-    h_tem=data['tem1']
-    l_tem=data['tem2']
-    n_tem=data['tem']
-    win=data['win']
-    win_speed=data['win_speed']
-    win_meter=data['win_meter']
-    hum=data['humidity']
-    visit=data['visibility']
-    pressure=data['pressure']
-    air=data['air']
-    pm25=data['air_pm25']
-    air_level=data['air_level']
-    air_tips=data['air_tips']
+    data1 = json.loads(json_text)
+    data=data1['data'][0]
+    # cityid=data['cityid']
+    # city=data['city']
+    date=data['date'] #日期
+    utime=data1['update_time'] #更新时间
+    week=data['week'] #星期
+    wea=data['wea']  #天气
+    h_tem=data['tem1']  #最高温度
+    l_tem=data['tem2']  #最低温度
+    n_tem=data['tem']   #现在温度
+    win=data['win'][0]  #风描述
+    win_speed=data['win_speed'] #风速
+    # win_meter=data['win_meter']
+    hum=data['humidity'] #湿度
+    # visit=data['visibility']
+    # pressure=data['pressure']
+    air=data['air'] #空气质量
+
+    index_lev=data['index'][0]['level'] #紫外线指数
+    index_desc=data['index'][0]['desc'] #紫外线建议
+
+    clo_lev=data['index'][3]['level'] #穿衣指数
+    clo_desc=data['index'][3]['desc'] #穿衣建议
+
+    # pm25=data['air_pm25']
+    air_level=data['air_level'] #空气级别  例如：优秀
+    air_tips=data['air_tips'] #空气提示
     alarm=data['alarm']['alarm_content']
-    alarm_type=data['alarm']['alarm_type']
-    alarm_level=data['alarm']['alarm_level']
+    # alarm_type=data['alarm']['alarm_type']
+    # alarm_level=data['alarm']['alarm_level']
     if status=='failed':
-        send_data=city+"天气预报：\n"+"\n天气："+wea+"  "+n_tem+"℃\n最高/低温："+h_tem+"℃ /"+l_tem+"℃\n湿度："+hum+"\n"+win+"  "+win_speed+"  "+win_meter+"\n能见度："+visit+"\n空气质量："+air+"  "+air_level+"  "+air_tips+"\npm2.5："+pm25+"\n预警消息："+alarm+"\n更新时间："+date+" "+week+" "+utime+"\n数据来源：中国天气网\n当您看到这条消息时，彩云天气api已经到达配额上限，请点击详情手动查询降雨预报"
+        send_data=city+"天气预报：\n天气："+wea+"  "+n_tem+"℃\n最高/低温："+h_tem+"℃ /"+l_tem+"℃\n湿度："+hum+"\n"+win+"  "+win_speed+"紫外线指数："+index_lev+"\n建议："+index_desc+"\n空气质量："+air+"  "+air_level+"  "+air_tips+"\npm2.5：\n预警消息："+alarm+"\n更新时间："+date+" "+week+" "+utime+"\n数据来源：中国天气网\n当您看到这条消息时，彩云天气api已经到达配额上限，请点击详情手动查询降雨预报"
     else:
-        now_data=self_realtime_data['result']['forecast_keypoint']
+        now_data=self_realtime_data['result']['forecast_keypoint'] #降雨预报
         nowTime=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        send_data="降雨预报：\n"+now_data+"\n更新于："+nowTime+"\n天气："+wea+"  "+n_tem+"℃\n最高/低温："+h_tem+"℃ /"+l_tem+"℃\n湿度："+hum+"\n"+win+"  "+win_speed+"  "+win_meter+"\n能见度："+visit+"\n空气质量："+air+"  "+air_level+"  "+air_tips+"\npm2.5："+pm25+"\n预警消息："+alarm+"\n"
+        send_data=str.format("降雨预报：\n"+now_data+"\n更新于："+nowTime+"\n天气："+wea+" "+n_tem+"\n最高/低温："+h_tem+"/"+l_tem+"\n湿度："+str(hum)+"\n"+win+" "+win_speed+"\n\n紫外线指数："+index_lev+"\n防护建议："+index_desc+"\n穿衣建议："+clo_desc+"\n\n空气质量："+str(air)+" "+air_level+" "+air_tips+"\n预警信息："+alarm)
+
+
     return send_data
 
 
