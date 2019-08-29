@@ -49,7 +49,7 @@
 ### 再把代码里我中文标注的地方填完就OK（例如彩云科技API），准备最后一步 
   ![Image text](https://github.com/6yi/WechatAutoWeather/blob/master/Demoimg/5.png)
   <br>
-#### 图中的经纬度需要你自己查询（http://www.gpsspg.com/maps.htm） 经度在前，纬度在后，例：114.00,23.34 
+#### 图中的经纬度需要你自己查询（http://www.gpsspg.com/maps.htm ） 经度在前，纬度在后，例：114.00,23.34 
   <br>
   <br>
   <br>
