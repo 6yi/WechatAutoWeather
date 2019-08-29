@@ -5,6 +5,9 @@ import datetime
 import requests
 import json
 import time
+import lovelive
+
+
 def sleeptime(hour,min,sec):
     return hour*3600 + min*60 + sec;
 
@@ -52,7 +55,7 @@ def sendmsg(openid,msg,access_token,templateId):
     result = response.json()
     print(result)
 
-def getmsg(city,jwd):
+def getmsg(city,jwd,tw):
     json_text = requests.get(str.format(jwd)).content
     self_realtime_data = json.loads(json_text)
     status=self_realtime_data['status']
@@ -93,7 +96,7 @@ def getmsg(city,jwd):
     else:
         now_data=self_realtime_data['result']['forecast_keypoint'] #降雨预报
         nowTime=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        send_data=str.format("降雨预报：\n"+now_data+"\n更新于："+nowTime+"\n天气："+wea+" "+n_tem+"\n最高/低温："+h_tem+"/"+l_tem+"\n湿度："+str(hum)+"\n"+win+" "+win_speed+"\n\n紫外线指数："+index_lev+"\n防护建议："+index_desc+"\n穿衣建议："+clo_desc+"\n\n空气质量："+str(air)+" "+air_level+" "+air_tips+"\n预警信息："+alarm)
+        send_data=str.format(now_data+"\n更新于："+nowTime+"\n天气："+wea+" "+n_tem+"\n最高/低温："+h_tem+"/"+l_tem+"\n湿度："+str(hum)+"\n"+win+" "+win_speed+"\n紫外线指数："+index_lev+"\n穿衣建议："+clo_desc+"\n空气质量："+str(air)+" "+air_level+" "+air_tips+"\n每日土味："+tw+"\n预警信息："+alarm)
 
 
     return send_data
@@ -102,10 +105,11 @@ def getmsg(city,jwd):
 if __name__ == '__main__':
     while(True):
         access_token = get_access_token()
+        tw=lovelive.get_lovelive_info()
         # sendmsg函数可以复制多个，每个都填写不同的信息，就可以做到同时给多个微信号发送了。
         sendmsg('测试号上的微信号',
                 getmsg("https://www.tianqiapi.com/api/?version=v6&city=城市名",
-                "https://api.caiyunapp.com/v2/你的彩云天气APPtoken/经纬度/minutely.json"),
+                       "https://api.caiyunapp.com/v2/你的彩云天气APPtoken/经纬度/minutely.json",tw),
                 access_token,"模板号")
         time.sleep(second)
 
